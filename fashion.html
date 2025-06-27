@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4k Videos - Senzy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="png" href="senzy.png" />
+</head>
+<body>
+
+    <!-- START: Navbar (same as index.html) -->
+    <!-- Navbar -->
+    <nav class="navbar sticky-navbar cool-navbar">
+        <div class="nav-top">
+            <div class="nav-logo">
+                <a href="profile.html"><i class="fas fa-user-circle profile-icon"></i></a>
+                <a href="/" class="brand-name">Senzy</a>
+            </div>
+            <div class="nav-search cool-search">
+                <input type="text" id="searchInput" onkeyup="searchProducts()" placeholder="Search for products, brands, or categories...">
+                <button onclick="searchProducts()" class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="nav-actions">
+                <a href="login.html"><i class="fas fa-user"></i> Login</a>
+                <a href="javascript:void(0);" onclick="openCart()"><i class="fas fa-shopping-cart"></i> Cart <span id="cartCount">0</span></a>
+                <button id="darkModeToggle" title="Toggle dark mode" style="margin-left:12px; background:none; border:none; color:inherit; font-size:20px; cursor:pointer;"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+        <div class="nav-bottom">
+            <ul class="nav-links cool-tabs">
+                <li><a href="/" class="tab-link"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="electronics.html" class="tab-link"><i class="fas fa-tv"></i> Electronics</a></li>
+                <li><a href="fashion.html" class="tab-link"><i class="fas fa-film"></i> 4K Video</a></li>
+                <li><a href="groceries.html" class="tab-link"><i class="fas fa-image"></i> 4K Pictures</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- END: Navbar -->
+
+    <!-- Blank content area -->
+    
+ <section class="shorts-gallery">
+  <h2 style="text-align:center;">Video Shorts</h2>
+  <div class="shorts-scroll">
+    <div class="shorts-block first">
+      <video controls autoplay muted playsinline>
+        <source src="video2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="shorts-block">
+      <video controls playsinline class="shorts-up">
+        <source src="video6.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="shorts-block">
+      <video controls playsinline class="shorts-up">
+        <source src="video3.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="shorts-block">
+      <video controls playsinline class="shorts-up">
+        <source src="video16.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="shorts-block">
+      <video controls playsinline class="shorts-up">
+        <source src="obito.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <div class="shorts-block">
+      <video controls playsinline class="shorts-up">
+        <source src="demon1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <div class="shorts-block">
+      <video controls playsinline class="shorts-up">
+        <source src="demon2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+  </div>
+</section>
+
+<!-- Up/Down navigation buttons -->
+<div class="shorts-nav-btns">
+  <button id="shortsUpBtn" title="Previous" class="shorts-nav-btn"><i class="fas fa-chevron-up"></i></button>
+  <button id="shortsDownBtn" title="Next" class="shorts-nav-btn"><i class="fas fa-chevron-down"></i></button>
+</div>
+
+<style>
+.shorts-scroll {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  box-sizing: border-box;
+}
+.shorts-block {
+  height: 100vh;
+  min-height: 400px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  scroll-snap-align: start;
+  scroll-margin-top: 70px; /* ensures snap aligns below navbar if fixed */
+}
+.shorts-block video {
+  aspect-ratio: 9/16;
+  height: 90vh;
+  max-height: 90vh;
+  width: auto;
+  max-width: 100vw;
+  display: block;
+  margin: 0 auto;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px #0003;
+  background: #000;
+}
+.shorts-block .shorts-up {
+  margin-top: -64px;
+}
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body.dark-mode {
+  background: #181818 !important;
+  color: #ffd54f !important;
+}
+body.dark-mode .navbar, body.dark-mode nav {
+  background: linear-gradient(90deg, #181818 60%, #23243a 100%) !important;
+  color: #ffd54f !important;
+}
+body.dark-mode .nav-links li a, body.dark-mode .nav-links li a:visited {
+  color: #ffd54f !important;
+}
+body.dark-mode .nav-links li a:hover {
+  background: #23243a !important;
+  color: #fffbe6 !important;
+}
+body.dark-mode .media-gallery {
+  background: #23243a !important;
+  color: #ffd54f !important;
+}
+body.dark-mode .media-block {
+  background: #181818 !important;
+  color: #ffd54f !important;
+  border: 1px solid #333753 !important;
+  box-shadow: 0 2px 12px #ffd54f22 !important;
+}
+body.dark-mode .media-block video {
+  background: #23243a !important;
+  border: 1px solid #333753 !important;
+}
+body.dark-mode .nav-search input {
+  background: #23243a !important;
+  color: #ffd54f !important;
+  border: 1px solid #333753 !important;
+}
+body.dark-mode .nav-search button {
+  background: #ffd54f !important;
+  color: #23243a !important;
+}
+body.dark-mode .nav-search input::placeholder {
+  color: #ffd54f99 !important;
+}
+body.dark-mode .nav-logo a, body.dark-mode .brand-name {
+  color: #ffd54f !important;
+}
+.shorts-nav-btns {
+  position: fixed;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 1001;
+}
+.shorts-nav-btn {
+  background: #23243aee;
+  color: #ffd54f;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 1.5rem;
+  box-shadow: 0 2px 8px #0003;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  outline: none;
+}
+.shorts-nav-btn:hover {
+  background: #ffd54f;
+  color: #23243a;
+}
+</style>
+
+<script>
+// --- Dark Mode Toggle ---
+const darkModeToggle = document.getElementById('darkModeToggle');
+const darkModeClass = 'dark-mode';
+if (localStorage.getItem('senzyDarkMode') === 'true') {
+  document.body.classList.add(darkModeClass);
+}
+darkModeToggle.addEventListener('click', function() {
+  document.body.classList.toggle(darkModeClass);
+  localStorage.setItem('senzyDarkMode', document.body.classList.contains(darkModeClass));
+  updateDarkModeIcon();
+});
+function updateDarkModeIcon() {
+  if (document.body.classList.contains(darkModeClass)) {
+    darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+  } else {
+    darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+  }
+}
+updateDarkModeIcon();
+
+// --- Auto-play video on scroll (YouTube Shorts style) ---
+document.addEventListener('DOMContentLoaded', function() {
+  const videos = document.querySelectorAll('.shorts-block video');
+  // Pause all except the first
+  videos.forEach((v, i) => { if(i !== 0) v.pause(); });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const video = entry.target;
+      if (entry.isIntersecting && entry.intersectionRatio > 0.7) {
+        video.play();
+      } else {
+        video.pause();
+      }
+    });
+  }, { threshold: [0.7] });
+
+  videos.forEach(video => observer.observe(video));
+});
+
+// --- Shorts up/down navigation ---
+document.addEventListener('DOMContentLoaded', function() {
+  const shortsBlocks = document.querySelectorAll('.shorts-block');
+  let currentIdx = 0;
+  function scrollToIdx(idx) {
+    if (idx >= 0 && idx < shortsBlocks.length) {
+      shortsBlocks[idx].scrollIntoView({ behavior: 'smooth', block: 'start' });
+      currentIdx = idx;
+    }
+  }
+  document.getElementById('shortsUpBtn').onclick = function() {
+    scrollToIdx(currentIdx - 1);
+  };
+  document.getElementById('shortsDownBtn').onclick = function() {
+    scrollToIdx(currentIdx + 1);
+  };
+  // Update currentIdx on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio > 0.7) {
+        currentIdx = Array.from(shortsBlocks).indexOf(entry.target);
+      }
+    });
+  }, { threshold: [0.7] });
+  shortsBlocks.forEach(block => observer.observe(block));
+});
+</script>
+
+</body>
+</html>

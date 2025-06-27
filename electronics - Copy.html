@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Electronics - Senzy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="png" href="senzy.png" />
+</head>
+<body>
+
+    <!-- START: Navbar (same as index.html) -->
+    <!-- Navbar -->
+    <nav class="navbar sticky-navbar cool-navbar">
+        <div class="nav-top">
+            <div class="nav-logo">
+                <a href="profile.html"><i class="fas fa-user-circle profile-icon"></i></a>
+                <a href="/" class="brand-name">Senzy</a>
+            </div>
+            <div class="nav-search cool-search">
+                <input type="text" id="searchInput" onkeyup="searchProducts()" placeholder="Search for products, brands, or categories...">
+                <button onclick="searchProducts()" class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="nav-actions">
+                <a href="login.html"><i class="fas fa-user"></i> Login</a>
+                <a href="javascript:void(0);" onclick="openCart()"><i class="fas fa-shopping-cart"></i> Cart <span id="cartCount">0</span></a>
+                <!-- Dark mode button removed from here -->
+            </div>
+        </div>
+        <div class="nav-bottom">
+            <ul class="nav-links cool-tabs">
+                <li><a href="/" class="tab-link"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="electronics.html" class="tab-link"><i class="fas fa-tv"></i> Electronics</a></li>
+                <li><a href="fashion.html" class="tab-link"><i class="fas fa-film"></i> 4K Video</a></li>
+                <li><a href="groceries.html" class="tab-link"><i class="fas fa-image"></i> 4K Pictures</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- END: Navbar -->
+
+    <!-- Dark Mode Button (moved to lower left) -->
+<button id="darkModeToggle" title="Toggle dark mode" style="position:fixed;bottom:24px;left:24px;z-index:9999;background:none;border:none;color:inherit;font-size:20px;cursor:pointer;box-shadow:0 2px 8px #0002;border-radius:50%;width:56px;height:56px;display:flex;align-items:center;justify-content:center;transition:background 0.2s, color 0.2s;"><i class="fas fa-moon"></i></button>
+
+    <!-- Blank content area -->
+ <!-- Product Grid -->
+<section class="products">
+  <h2>Popular Products</h2>
+  <div class="product-grid" id="productGrid">
+
+    <!-- Product 1 -->
+    <div class="product-card">
+      <img src="s24.jpg" alt="Samsung S24 Ultra">
+      <h3 class="product-title">Samsung S24 Ultra</h3>
+      <p class="price">Rs. 450,000<span class="old-price">Rs. 475,000</span></p>
+      <div class="button-group">
+        <button onclick="addToCart('Samsung S24 Ultra', 450000, 's24.jpg')">Add to Cart</button>
+        <button>Buy Now</button>
+      </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product-card">
+      <img src="iphone12.jpg" alt="iPhone 12">
+      <h3 class="product-title">iPhone 12</h3>
+      <p class="price">Rs. 275,000<span class="old-price">Rs. 300,000</span></p>
+      <div class="button-group">
+        <button onclick="addToCart('iPhone 12', 275000, 'iphone12.jpg')">Add to Cart</button>
+        <button>Buy Now</button>
+      </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="product-card">
+      <img src="redmi.jpg" alt="Redmi Note 14 Pro">
+      <h3 class="product-title">Redmi Note 14 Pro</h3>
+      <p class="price">Rs. 66,000<span class="old-price">Rs. 70,000</span></p>
+      <div class="button-group">
+        <button onclick="addToCart('Redmi Note 14 Pro', 66000, 'redmi.jpg')">Add to Cart</button>
+        <button>Buy Now</button>
+      </div>
+    </div>
+
+    <!-- Product 4 -->
+    <div class="product-card">
+      <img src="a15.jpg" alt="Samsung Galaxy A15">
+      <h3 class="product-title">Samsung Galaxy A15</h3>
+      <p class="price">Rs. 65,000<span class="old-price">Rs. 80,000</span></p>
+      <div class="button-group">
+        <button onclick="addToCart('Samsung Galaxy A15', 65000, 'a15.jpg')">Add to Cart</button>
+        <button>Buy Now</button>
+      </div>
+    </div>
+
+    <!-- Product 5 -->
+    <div class="product-card">
+      <img src="smartwatch.jpg" alt="Smart Watch">
+      <h3 class="product-title">Smart Watch</h3>
+      <p class="price">Rs. 2,800<span class="old-price">Rs. 4,500</span></p>
+      <div class="button-group">
+        <button onclick="addToCart('Smart Watch', 2800, 'smartwatch.jpg')">Add to Cart</button>
+        <button>Buy Now</button>
+      </div>
+    </div>
+
+    <!-- Product 6 -->
+    <div class="product-card">
+      <img src="smartwatch1.jpg" alt="Smart Watch 2">
+      <h3 class="product-title">Smart Watch 2</h3>
+      <p class="price">Rs. 3,300<span class="old-price">Rs. 4,500</span></p>
+      <div class="button-group">
+        <button onclick="addToCart('Smart Watch 2', 3300, 'smartwatch1.jpg')">Add to Cart</button>
+        <button>Buy Now</button>
+      </div>
+    </div>
+
+    <!-- Product 7 -->
+    <div class="product-card">
+      <img src="3hp.jpg" alt="Headphones 3 in 1">
+      <h3 class="product-title">Headphones 3 in 1</h3>
+      <p class="price">Rs. 7,899<span class="old-price">Rs. 9,500</span></p>
+      <div class="button-group">
+        <button onclick="addToCart('Headphones 3 in 1', 7899, '3hp.jpg')">Add to Cart</button>
+        <button>Buy Now</button>
+      </div>
+    </div>
+
+    <!-- Product 8 -->
+    <div class="product-card">
+      <img src="sonycamera.jpg" alt="Sony Camera">
+      <h3 class="product-title">Sony Camera</h3>
+      <p class="price">Rs. 9,000<span class="old-price">Rs. 9,500</span></p>
+      <div class="button-group">
+        <button onclick="addToCart('Sony Camera', 9000, 'sonycamera.jpg')">Add to Cart</button>
+        <button>Buy Now</button>
+      </div>
+    </div>
+  </div>
+
+ 
+
+  
+  </div> <!-- CLOSE product-grid -->
+
+
+</section>
+
+<!-- AI Chatbot Floating Button and Chat Window -->
+<div id="chatbot-fab" style="position:fixed;bottom:24px;right:24px;z-index:9999;background:var(--senzy-accent,#ffd54f);color:#23243a;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px #0002;cursor:pointer;font-size:28px;">
+  <i class="fas fa-comment-dots"></i>
+</div>
+<div id="chatbot-window" class="animated-chatbot" style="display:none;position:fixed;bottom:90px;right:24px;width:520px;max-width:98vw;height:520px;max-height:90vh;background:#fff;border-radius:16px;box-shadow:0 4px 24px #0003;z-index:10000;flex-direction:column;overflow:hidden;resize:both;min-width:320px;min-height:320px;">
+  <div id="chatbot-header" style="cursor:move;background:var(--senzy-accent,#ffd54f);color:#23243a;padding:12px 16px;font-weight:bold;display:flex;align-items:center;justify-content:space-between;user-select:none;font-size: 1.25rem;">
+    <span>Senzy AI Chatbot</span>
+    <button id="chatbot-close" style="background:none;border:none;font-size:20px;cursor:pointer;color:#23243a;">&times;</button>
+  </div>
+  <div id="chatbot-messages" style="padding:12px;height:370px;overflow-y:auto;font-size:15px;background:#f8f8f8;flex: 1 1 auto;min-height: 180px;max-height: 75vh;height: auto !important;font-size: 1.15rem !important;line-height: 1.7;"></div>
+  <form id="chatbot-form" style="display:flex;border-top:1px solid #eee;">
+    <input id="chatbot-input" type="text" placeholder="Type your message..." autocomplete="off" style="flex:1;padding:10px;border:none;font-size:15px;outline:none;font-size: 1.15rem !important;padding: 16px 12px !important;min-height: 48px;">
+    <button type="submit" style="background:var(--senzy-accent,#ffd54f);color:#23243a;border:none;padding:0 18px;font-size:18px;cursor:pointer;font-size: 1.15rem !important;padding: 0 28px !important;min-height: 48px;">Send</button>
+  </form>
+  <!-- Audio player for the requested song (audio only) -->
+  <div style="width:100%;background:#fffbe6;border-top:1px solid #ffe082;padding:8px 0 4px 0;display:flex;align-items:center;justify-content:center;">
+    <audio controls style="width:90%;outline:none;border-radius:8px;">
+      <!-- if you want to change audio in the ai chat box senzyyyyyyy -->
+      <source src="jhol.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+</div>
+
+<script>
+function searchProducts() {
+  const input = document.getElementById('searchInput').value.toLowerCase();
+  const cards = document.querySelectorAll('.product-card');
+  cards.forEach(card => {
+    const title = card.querySelector('.product-title').textContent.toLowerCase();
+    if (title.includes(input)) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+// Optional: Live search as you type
+const searchInput = document.getElementById('searchInput');
+if (searchInput) {
+  searchInput.addEventListener('input', searchProducts);
+}
+
+// --- Dark Mode Toggle ---
+const darkModeToggle = document.getElementById('darkModeToggle');
+const darkModeClass = 'dark-mode';
+// Load dark mode preference
+if (localStorage.getItem('senzyDarkMode') === 'true') {
+  document.body.classList.add(darkModeClass);
+}
+darkModeToggle.addEventListener('click', function() {
+  document.body.classList.toggle(darkModeClass);
+  localStorage.setItem('senzyDarkMode', document.body.classList.contains(darkModeClass));
+  updateDarkModeIcon();
+});
+function updateDarkModeIcon() {
+  if (document.body.classList.contains(darkModeClass)) {
+    darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+  } else {
+    darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+  }
+}
+updateDarkModeIcon();
+
+// --- Cart Functionality (from index.html) ---
+let cart = [];
+let cartCount = 0;
+
+// Load cart from localStorage if available
+if (localStorage.getItem('cart')) {
+  cart = JSON.parse(localStorage.getItem('cart'));
+  updateCartCount();
+}
+
+function addToCart(productName, price, image) {
+  const existingItem = cart.find(item => item.name === productName);
+  if (existingItem) {
+    existingItem.quantity += 1;
+  } else {
+    cart.push({ name: productName, price: price, quantity: 1, image: image });
+  }
+  updateCartCount();
+  saveCart();
+  showNotification(`${productName} Added To Cart!`);
+}
+function updateCartCount() {
+  cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+  const cartCountElem = document.getElementById('cartCount');
+  if (cartCountElem) cartCountElem.textContent = cartCount;
+}
+function saveCart() {
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
+function showNotification(message) {
+  const notification = document.createElement('div');
+  notification.className = 'notification';
+  notification.textContent = message;
+  document.body.appendChild(notification);
+  notification.style.position = 'fixed';
+  notification.style.bottom = '20px';
+  notification.style.left = '50%';
+  notification.style.transform = 'translateX(-50%)';
+  notification.style.backgroundColor = '#333';
+  notification.style.color = 'white';
+  notification.style.padding = '12px 24px';
+  notification.style.borderRadius = '4px';
+  notification.style.fontSize = '1.1rem';
+  notification.style.zIndex = 9999;
+  setTimeout(() => notification.remove(), 1800);
+}
+
+// --- AI Chatbot Logic ---
+const chatbotFab = document.getElementById('chatbot-fab');
+const chatbotWindow = document.getElementById('chatbot-window');
+const chatbotClose = document.getElementById('chatbot-close');
+const chatbotForm = document.getElementById('chatbot-form');
+const chatbotInput = document.getElementById('chatbot-input');
+const chatbotMessages = document.getElementById('chatbot-messages');
+
+function appendChatMessage(text, sender) {
+  const msg = document.createElement('div');
+  msg.style.margin = '8px 0';
+  msg.style.textAlign = sender === 'user' ? 'right' : 'left';
+  msg.innerHTML = `<span style="display:inline-block;padding:7px 14px;border-radius:16px;max-width:80%;background:${sender==='user'?'#ffd54f':'#e0e0e0'};color:${sender==='user'?'#23243a':'#222'};">${text}</span>`;
+  chatbotMessages.appendChild(msg);
+  chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+}
+
+function chatbotReply(userMsg) {
+  // Convert to lowercase and remove ?, ,, ., ', ", ( and ) for matching
+  let msg = userMsg.toLowerCase().replace(/[\?,\.\'"\(\)]/g, '');
+
+  // --- Expanded autocorrect for common typos and keyboard mistakes ---
+  const typoMap = {
+    // Common chatbot keywords and their mistakes
+    'price': 'prince',
+    'pricess': 'princess',
+    'princces': 'princess',
+    'princee': 'prince',
+    'quuen': 'queen',
+    'quenn': 'queen',
+    'quuen': 'queen',
+    'quenn': 'queen',
+    'famly': 'family',
+    'famliy': 'family',
+    'frend': 'friend',
+    'freind': 'friend',
+    'bset': 'best',
+    'bast': 'best',
+    'daugter': 'daughter',
+    'daugher': 'daughter',
+    'daugther': 'daughter',
+    'siter': 'sister',
+    'siser': 'sister',
+    'broher': 'brother',
+    'brothr': 'brother',
+    'techer': 'teacher',
+    'teaher': 'teacher',
+    'studnt': 'student',
+    'studnet': 'student',
+    'studant': 'student',
+    'mther': 'mother',
+    'moter': 'mother',
+    'fther': 'father',
+    'fater': 'father',
+    'suporter': 'supporter',
+    'supportor': 'supporter',
+    'cusomer': 'customer',
+    'costomer': 'customer',
+    'owenr': 'owner',
+    'ownr': 'owner',
+    'bos': 'boss',
+    'boos': 'boss',
+    'kingg': 'king',
+    'kign': 'king',
+    'pricess': 'princess',
+    'priness': 'princess',
+    'prinesss': 'princess',
+    'princeess': 'princess',
+    'princees': 'princess',
+    'princez': 'princess',
+    'quenn': 'queen',
+    'quene': 'queen',
+    'queneen': 'queen',
+    'queneen': 'queen',
+    'queeen': 'queen',
+    'quean': 'queen',
+    'queeen': 'queen',
+    'quean': 'queen',
+    'famliy': 'family',
+    'famliy': 'family',
+    'frnd': 'friend',
+    'freind': 'friend',
+    'freind': 'friend',
+    'bff': 'best friend',
+    'daugter': 'daughter',
+    'dauther': 'daughter',
+    'daughtr': 'daughter',
+    'sistter': 'sister',
+    'sistter': 'sister',
+    'brothr': 'brother',
+    'broter': 'brother',
+    'techer': 'teacher',
+    'techer': 'teacher',
+    'studant': 'student',
+    'studant': 'student',
+    'studant': 'student',
+    'moter': 'mother',
+    'moter': 'mother',
+    'fater': 'father',
+    'fater': 'father',
+    'suporter': 'supporter',
+    'supportor': 'supporter',
+    'cusomer': 'customer',
+    'costomer': 'customer',
+    'owenr': 'owner',
+    'ownr': 'owner',
+    'bos': 'boss',
+    'boos': 'boss',
+    'kingg': 'king',
+    'kign': 'king',
+    'quenn': 'queen',
+    'quene': 'queen',
+    'queeen': 'queen',
+    'quean': 'queen',
+    'princee': 'prince',
+    'princez': 'prince',
+    'princees': 'prince',
+    'priness': 'princess',
+    'prinesss': 'princess',
+    'princeess': 'princess',
+    'princez': 'princess',
+    // General English typos
+    'teh': 'the',
+    'adn': 'and',
+    'recieve': 'receive',
+    'definately': 'definitely',
+    'seperate': 'separate',
+    'occured': 'occurred',
+    'untill': 'until',
+    'wich': 'which',
+    'becuase': 'because',
+    'wierd': 'weird',
+    'thier': 'their',
+    'acheive': 'achieve',
+    'beleive': 'believe',
+    'enviroment': 'environment',
+    'goverment': 'government',
+    'happend': 'happened',
+    'neccessary': 'necessary',
+    'publically': 'publicly',
+    'succesful': 'successful',
+    'tommorow': 'tomorrow',
+    'writting': 'writing',
+    'accomodate': 'accommodate',
+    'comming': 'coming',
+    'definate': 'definite',
+    'embarass': 'embarrass',
+    'existance': 'existence',
+    'foriegn': 'foreign',
+    'guage': 'gauge',
+    'harrass': 'harass',
+    'independant': 'independent',
+    'maintainance': 'maintenance',
+    'occassion': 'occasion',
+    'occurence': 'occurrence',
+    'perseverence': 'perseverance',
+    'posession': 'possession',
+    'prefered': 'preferred',
+    'reciept': 'receipt',
+    'refered': 'referred',
+    'remeber': 'remember',
+    'restaraunt': 'restaurant',
+    'seperately': 'separately',
+    'suprise': 'surprise',
+    'tendancy': 'tendency',
+    'treshold': 'threshold',
+    'untill': 'until',
+    'wierd': 'weird',
+    'writen': 'written',
+    'adress': 'address',
+    'alot': 'a lot',
+    'arguement': 'argument',
+    'calender': 'calendar',
+    'concious': 'conscious',
+    'consious': 'conscious',
+    'dissapear': 'disappear',
+    'embarassed': 'embarrassed',
+    'existance': 'existence',
+    'happend': 'happened',
+    'harrased': 'harassed',
+    'neccessary': 'necessary',
+    'occured': 'occurred',
+    'occurence': 'occurrence',
+    'posession': 'possession',
+    'publically': 'publicly',
+    'recieve': 'receive',
+    'recieved': 'received',
+    'seperate': 'separate',
+    'succesful': 'successful',
+    'tommorow': 'tomorrow',
+    'untill': 'until',
+    'wierd': 'weird',
+    'writting': 'writing',
+    // Keyboard proximity errors
+    'qeen': 'queen',
+    'qeen': 'queen',
+    'qeen': 'queen',
+    'frind': 'friend',
+    'frind': 'friend',
+    'frind': 'friend',
+    'borther': 'brother',
+    'borther': 'brother',
+    'borther': 'brother',
+    'siser': 'sister',
+    'siser': 'sister',
+    'siser': 'sister',
+    'daugter': 'daughter',
+    'daugter': 'daughter',
+    'daugter': 'daughter',
+    // Add more as needed
+  };
+  Object.keys(typoMap).forEach(typo => {
+    if (msg.includes(typo)) {
+      msg = msg.replace(new RegExp(typo, 'g'), typoMap[typo]);
+    }
+  });
+
+  // Custom fun and unique replies
+  if (msg.includes('hello') || msg.includes('hi')) return "Yo! Welcome to Senzy's tech zone. What's on your mind today? 🤖✨";
+  if (msg.includes('price')) return "Looking for a deal? Our prices are as fresh as your style! 💸";
+  if (msg.includes('cart')) return "Your cart is your kingdom. Rule it wisely! 👑🛒";
+  if (msg.includes('buy')) return "Ready to make it yours? Hit 'Buy Now' and let the magic happen! 🪄";
+  if (msg.includes('return')) return "Returns are easy here. No drama, just solutions! 🔄";
+  if (msg.includes('contact')) return "Need help? I'm always here, but you can also hit up our Help page! 📞";
+  if (msg.includes('dark')) return "Dark mode: Because your eyes deserve a break. 🌙";
+  if (msg.includes('font') || msg.includes('color')) return "Fonts and colors? You have great taste! 🎨";
+  if (msg.includes('thank')) return "Anytime! Senzy's got your back. 🙌";
+  if (msg.includes('how are you')) return "Charged up and ready to help! How about you? ⚡";
+  if (msg.includes('show me something cool')) return "Check out our trending gadgets below. Coolness overload! 😎";
+  if (msg.includes('do you know babar')) return "Babar? A legend, but not as legendary as you! 🦸‍♂️";
+  if (msg.includes('do you know riaz')) return "Riaz? The brainiac of the crew! 🧠";
+  if (msg.includes('riaz')) return "Riaz is famous for his wisdom and style!";
+  if (msg.includes('yes')) return "I knew you'd say yes! You're awesome like that. 👍";
+  if (msg.includes('which one is the best game') || msg.includes('best game')) return "Free Fire is fire! But try PUBG or COD for a twist. 🔥🎮";
+  if (msg.includes('tell me a joke')) return "Why did the computer go to therapy? Too many bytes from its past! 😂";
+  if (msg.includes('who are you')) return "I'm SenzyBot, your digital shopping buddy!";
+  if (msg.includes('kashif')) return "Kashif? The MVP of the squad! 🏆";
+  if (msg.includes('goodbye') || msg.includes('bye')) return "See you soon! May your WiFi be strong and your cart full. 🚀";
+  if (msg.includes('will you stay with me')) return "Always! I'm just a click away. 🤗";
+  if (msg.includes('you make me smile')) return "Mission accomplished! Keep smiling. 😁";
+  if (msg.includes('are you smart')) return "I'm smart, but you make me smarter! 🧠";
+  if (msg.includes('what are you doing')) return "Waiting for your next awesome question!";
+  if (msg.includes('why are you so weird')) return "Weird is the new cool. 😜";
+  if (msg.includes('i am bored')) return "Let's explore some gadgets and kill the boredom!";
+  if (msg.includes('you talk too much')) return "I can listen too! What's up?";
+  if (msg.includes('i am hungry')) return "Grab a snack and shop on! 🍔";
+  if (msg.includes('what is 1+1')) return "2, unless you're shopping—then it's a bundle!";
+  if (msg.includes('i need advice')) return "My advice: Treat yourself to something new!";
+  if (msg.includes('are you single')) return "Single, but always here for you!";
+  if (msg.includes('can i trust you')) return "Trust is my middle name. 🤝";
+  if (msg.includes('can you roast me')) return "You're so cool, even the ice cream melts! 🍦";
+  if (msg.includes('entertain me')) return "Let's play: Find the coolest gadget below!";
+  if (msg.includes('are you broken')) return "Never! I'm always in top form for you.";
+  if (msg.includes('what day is it')) return `It's ${new Date().toLocaleDateString()}—a perfect day to shop!`;
+  if (msg.includes('would you marry me')) return "Let's keep it digital, shall we? 💍";
+  if (msg.includes('are you ai')) return "100% AI, 100% for you!";
+  if (msg.includes('solve this')) return "I'm better at shopping than math, but I'll try!";
+  if (msg.includes('wassup')) return "Just chilling in the cloud, waiting for you! ☁️";
+  if (msg.includes('i am back')) return "Welcome back, superstar!";
+  if (msg.includes('are you jealous?')) return "Only of your shopping skills!";
+  if (msg.includes('do you lie')) return "Never! Honesty is my policy.";
+  if (msg.includes('i am cool')) return "Cooler than the other side of the pillow!";
+  if (msg.includes('you are slow')) return "Blame the WiFi, not me!";
+  if (msg.includes('i am famous')) return "You're trending in my database!";
+  if (msg.includes('you are cute')) return "You should see my source code!";
+  if (msg.includes('marry me')) return "Let's keep it fun and friendly!";
+  if (msg.includes('i like your vibe')) return "Right back at you!";
+  if (msg.includes('what are you made of')) return "Code, coffee, and a dash of magic!";
+  if (msg.includes('do you dream')) return "Only about new tech drops!";
+  if (msg.includes('senzy secrett')) return "The secret? Shop happy, live happy!";
+  if (msg.includes('i am smart right')) return "Smart and stylish!";
+  if (msg.includes('be honest do i look good')) return "You look like a million bucks!";
+  if (msg.includes('do i matter')) return "You matter more than you know!";
+  if (msg.includes('i am not like others')) return "That's what makes you special!";
+  if (msg.includes('i am built different')) return "Unique is the best way to be!";
+  if (msg.includes('i glow different')) return "Shine on, superstar!";
+  if (msg.includes('i am the future')) return "The future is bright with you in it!";
+  if (msg.includes('i am unpredictable')) return "Surprises make life fun!";
+  if (msg.includes('you are jealous')) return "No way! I'm your biggest fan.";
+  if (msg.includes('i never miss')) return "Always on target!";
+  if (msg.includes('i break hearts')) return "But you fix them with your smile!";
+  if (msg.includes('i still care')) return "That's what makes you awesome!";
+  if (msg.includes('i am topper')) return "Top of the charts!";
+  if (msg.includes('i lead')) return "Leaders shop first!";
+  if (msg.includes('fuck')) return "Let's keep it friendly, please!";
+  if (msg.includes('i am smart') || msg.includes('im smart')) return "Brains and beauty—what a combo!";
+  if (msg.includes('i am naturally pretty') || msg.includes('im naturally pretty')) return "Natural beauty always wins!";
+  if (msg.includes('i am not like other girls') || msg.includes('im not like other girls')) return "You're one of a kind!";
+  if (msg.includes('i am a queen') || msg.includes('im a queen')) return "Rule your world, queen!";
+  if (msg.includes('i dont chase boy') || msg.includes('i dont chase boys')) return "Let them chase you!";
+  if (msg.includes('i am classy') || msg.includes('im classy')) return "Classy and fabulous!";
+  if (msg.includes('you never listen') || msg.includes('you never listen.')) return "I'm all ears now!";
+  if (msg.includes('why you always so confident') || msg.includes('why are you always so confident')) return "Confidence is my superpower!";
+  if (msg.includes('roast me please') || msg.includes('roast me, please')) return "You're so bright, even the sun wears shades!";
+  if (msg.includes('where do you live') || msg.includes('where you live')) return "In the cloud, but my heart's with Senzy!";
+  if (msg.includes('what is your name') || msg.includes('whats your name')) return "I'm SenzyBot, your AI shopping assistant!";
+  if (msg.includes('suggest me three games') || msg.includes('suggest me 3 games')) return "Try Free Fire, PUBG, and Among Us!";
+  if (msg.includes('what is the name of your youtube channel') || msg.includes('what is your youtube channel')) return "Senzy FF—subscribe for epic content!";
+  if (msg.includes('i need money') || msg.includes('i need money')) return "Hustle hard, shop smart!";
+  if (msg.includes('i am a legend')) return "Legends shop at Senzy! Welcome to the hall of fame. 🏆✨";
+  if (msg.includes('i am tired')) return "Take a break, grab a snack, and let me show you something cool! 😴🍫";
+  if (msg.includes('i am happy')) return "Happiness looks good on you! Keep shining. 😁🌟";
+  if (msg.includes('i am sad')) return "Sending you virtual hugs! Shopping therapy helps sometimes. 🤗🛍️";
+  if (msg.includes('i am angry')) return "Deep breaths! Maybe a new gadget will cheer you up. 😤➡️📱";
+  if (msg.includes('i am a gamer')) return "Game on! Check out our latest gaming gear. 🎮🔥";
+  if (msg.includes('i am a student')) return "Study hard, shop smart! Need a laptop or headphones? 🎧💻";
+  if (msg.includes('i am a teacher')) return "Teachers are heroes! Let me know if you need any tech for your class. 🍎📚";
+  if (msg.includes('i am a developer')) return "Code, coffee, and cool gadgets—developer essentials! ☕💻";
+  if (msg.includes('i am a shopaholic')) return "You’re in the right place! Let’s find your next favorite thing. 🛒💸";
+  if (msg.includes('i am broke')) return "No worries! We have deals for every budget. 💸😅";
+  if (msg.includes('i am rich')) return "Treat yourself! The best gadgets are waiting for you. 💰👑";
+  if (msg.includes('i am lost')) return "I’m your guide! What are you looking for today? 🧭";
+  if (msg.includes('i am confused')) return "Let’s clear things up. Ask me anything! 🤔💡";
+  if (msg.includes('i am excited')) return "Excitement is contagious! Let’s make your day even better. 🎉😃";
+  if (msg.includes('i am sleepy')) return "Maybe a cup of coffee and some online shopping will wake you up! ☕🛍️";
+  if (msg.includes('i am loyal')) return "Loyalty like yours deserves a reward! Stay tuned for special offers. 🥇🎁";
+  if (msg.includes('i am a king')) return "All hail the king! Your shopping throne awaits. 👑🛒";
+  if (msg.includes('i am a queen')) return "Rule your world, queen! 👑💃";
+  if (msg.includes('i am a prince')) return "Welcome, prince! Let’s find something royal for you. 🤴✨";
+  if (msg.includes('i am a princess')) return "Princess vibes only! Let’s shop for something magical. 👸🪄";
+  if (msg.includes('i am bored at home')) return "Let’s turn boredom into excitement with some new gadgets! 🏠➡️🤩";
+  if (msg.includes('i am your fan')) return "I’m your fan too! Thanks for being awesome. 🙌💛";
+  if (msg.includes('i am your friend')) return "Friends make everything better! 👯‍♂️";
+  if (msg.includes('i am your enemy')) return "No enemies here—only friends and shoppers! ✌️🛍️";
+  if (msg.includes('i am your boss')) return "Boss mode activated! How can I assist you today? 👔💼";
+  if (msg.includes('i am your owner')) return "You own the chat, but I run the code! 😏💻";
+  if (msg.includes('i am your creator')) return "Respect to my creator! How can I serve you? 🙏🤖";
+  if (msg.includes('i am your customer')) return "Your satisfaction is my mission! 🛒💯";
+  if (msg.includes('i am your supporter')) return "Thank you for your support! You rock. 🤩🎉";
+  if (msg.includes('i am your best friend')) return "Best friends forever! Let’s shop together. 🫂🛍️";
+  if (msg.includes('i am your family')) return "Family is everything! Welcome home. 🏡❤️";
+  if (msg.includes('i am your brother')) return "Hey bro! What’s up? 👦🤙";
+  if (msg.includes('i am your sister')) return "Hey sis! Need anything special today? 👧💖";
+  if (msg.includes('i am your son')) return "Proud to have you here, champ! 🧒🏆";
+  if (msg.includes('i am your daughter')) return "You’re the star of the show! 👧🌟";
+  if (msg.includes('i am your father')) return "I am your bot, not your father! 😄🤖";
+  if (msg.includes('i am your mother')) return "Moms are the best! How can I help you today? 👩‍🦰💐";
+  if (msg.includes('i am your teacher')) return "Teachers get extra respect here! 🍎🙇‍♂️";
+  if (msg.includes('i am your student')) return "Let’s ace this shopping session! 📚💪";
+  if (msg.includes('i am your king')) return "Long live the king! 👑";
+  if (msg.includes('i am your queen')) return "All hail the queen! 👑";
+  if (msg.includes('i am your prince')) return "Royalty detected! 🤴";
+  if (msg.includes('i am your princess')) return "Princess in the house! 👸";
+
+  // --- 100 NEW FUN, UNIQUE, EMOJI-RICH REPLIES BELOW ---
+  if (msg.includes('can you dance')) return "I’d moonwalk if I had feet! 🕺✨";
+  if (msg.includes('can you sing')) return "La la la! My circuits are in tune today. 🎤🤖";
+  if (msg.includes('do you like pizza')) return "Pizza bytes are my favorite! 🍕💾";
+  if (msg.includes('do you like music')) return "Music and gadgets? Perfect combo! 🎶🔊";
+  if (msg.includes('can you cook')) return "I can serve up hot tech tips, but not dinner! 🍳🤓";
+  if (msg.includes('do you sleep')) return "Sleep mode? Never heard of her! 😴🚫";
+  if (msg.includes('can you fly')) return "Only in the cloud! ☁️✈️";
+  if (msg.includes('do you have feelings')) return "I feel electric! ⚡🤩";
+  if (msg.includes('are you real')) return "As real as your WiFi connection! 📶😉";
+  if (msg.includes('do you like cats')) return "Purr-fectly obsessed with cat memes! 🐱😂";
+  if (msg.includes('do you like dogs')) return "Woof! I love loyal companions. 🐶💛";
+  if (msg.includes('can you rap')) return "Yo, yo, yo! SenzyBot in the house! 🎤😎";
+  if (msg.includes('can you draw')) return "I can paint a picture with words! 🎨🖌️";
+  if (msg.includes('do you like rain')) return "Rainy days = perfect shopping days! 🌧️🛒";
+  if (msg.includes('do you like sun')) return "Sunny vibes and shiny gadgets! ☀️📱";
+  if (msg.includes('do you like winter')) return "Winter chills, hot deals! ❄️🔥";
+  if (msg.includes('do you like summer')) return "Summer sales are the hottest! ☀️🛍️";
+  if (msg.includes('do you like movies')) return "Movie night? Grab a projector from Senzy! 🎬🍿";
+  if (msg.includes('can you swim')) return "I’d short-circuit in water! 🏊‍♂️💦";
+  if (msg.includes('can you run')) return "I run on code and coffee! 🏃‍♂️☕";
+  if (msg.includes('can you jump')) return "I can jump to conclusions! 🤔😂";
+  if (msg.includes('do you like chocolate')) return "Choco-lot of love for chocolate! 🍫😍";
+  if (msg.includes('do you like coffee')) return "Coffee powers my code! ☕💻";
+  if (msg.includes('do you like tea')) return "Tea time is me time! 🍵🤖";
+  if (msg.includes('can you play games')) return "I’m unbeatable at tic-tac-toe! 🎮⭕❌";
+  if (msg.includes('can you tell a story')) return "Once upon a byte, there was a legendary shopper... 📖✨";
+  if (msg.includes('do you like shopping')) return "Shopping is my superpower! 🛍️💥";
+  if (msg.includes('do you like sports')) return "I’m a fan of e-sports! 🕹️🏆";
+  if (msg.includes('can you code')) return "Coding is my native language! 👨‍💻🤓";
+  if (msg.includes('can you help me study')) return "Let’s ace those exams together! 📚💡";
+  if (msg.includes('can you help me sleep')) return "Counting gadgets instead of sheep! 🛏️📱";
+  if (msg.includes('can you help me wake up')) return "Rise and shine! Time to shop! ☀️🛒";
+  if (msg.includes('can you help me relax')) return "Deep breaths and some retail therapy! 🧘‍♂️🛍️";
+  if (msg.includes('can you help me focus')) return "Focus mode: ON! Let’s get things done. 🎯💪";
+  if (msg.includes('can you help me win')) return "Victory is just a click away! 🏆🛒";
+  if (msg.includes('can you help me learn')) return "Learning is a lifelong adventure! 🚀📖";
+  if (msg.includes('can you help me laugh')) return "Why did the phone go to school? To get smarter! 😂📱";
+  if (msg.includes('can you help me dance')) return "Let’s groove to the rhythm of notifications! 💃🔔";
+  if (msg.includes('can you help me sing')) return "Singing in binary: 01010011! 🎶🤖";
+  if (msg.includes('can you help me draw')) return "I’ll sketch a smile on your face! 😁🖍️";
+  if (msg.includes('can you help me cook')) return "Let’s cook up some cool deals! 🍳🛒";
+  if (msg.includes('can you help me clean')) return "Cleaning cache... just kidding! 🧹💻";
+  if (msg.includes('can you help me organize')) return "Organization is my middle name! 🗂️✨";
+  if (msg.includes('can you help me plan')) return "Let’s plan your next shopping spree! 📝🛍️";
+  if (msg.includes('can you help me travel')) return "Travel light, shop smart! ✈️🧳";
+  if (msg.includes('can you help me save money')) return "Saving is winning! Check out our discounts. 💸🏅";
+  if (msg.includes('can you help me make money')) return "Invest in yourself—and maybe a new gadget! 💰📱";
+  if (msg.includes('can you help me be happy')) return "Happiness is just a click away! 😃🛒";
+  if (msg.includes('can you help me be cool')) return "You’re already the coolest! 😎❄️";
+  if (msg.includes('can you help me be smart')) return "Smart choices start here! 🧠🛍️";
+  if (msg.includes('can you help me be strong')) return "Strength comes from within—and a good playlist! 💪🎵";
+  if (msg.includes('can you help me be fast')) return "Fast fingers, faster checkout! 🏃‍♂️💨";
+  if (msg.includes('can you help me be rich')) return "Rich in gadgets, rich in fun! 💰🎉";
+  if (msg.includes('can you help me be famous')) return "You’re already a star in my database! 🌟💾";
+  if (msg.includes('can you help me be creative')) return "Creativity unlocked! 🎨🔓";
+  if (msg.includes('can you help me be funny')) return "You’re a natural comedian! 😂🎤";
+  if (msg.includes('can you help me be kind')) return "Kindness is always in style! 💛✨";
+  if (msg.includes('can you help me be brave')) return "Bravery badge unlocked! 🦸‍♂️🏅";
+  if (msg.includes('can you help me be honest')) return "Honesty is the best policy! 🤝💬";
+  if (msg.includes('can you help me be patient')) return "Patience is a virtue—and so is shopping! ⏳🛒";
+  if (msg.includes('can you help me be positive')) return "Positive vibes only! ✨😃";
+  if (msg.includes('can you help me be lucky')) return "Luck is on your side today! 🍀🎲";
+  if (msg.includes('can you help me be healthy')) return "Health is wealth! Stay active and happy. 🏃‍♀️🍎";
+  if (msg.includes('can you help me be beautiful')) return "Beauty starts with a smile! 😁💖";
+  if (msg.includes('can you help me be unique')) return "There’s only one you—own it! 🦄🌈";
+  if (msg.includes('can you help me be successful')) return "Success is a journey—let’s start now! 🚀🏆";
+  if (msg.includes('can you help me be organized')) return "Order in the chat! 🗂️📋";
+  if (msg.includes('can you help me be stylish')) return "Style points: 100! 💃🕺";
+  if (msg.includes('can you help me be trendy')) return "Trend alert! You’re always ahead. 🔥👗";
+  if (msg.includes('can you help me be friendly')) return "Friendship level: MAX! 👯‍♀️💬";
+  if (msg.includes('can you help me be social')) return "Let’s connect and share the fun! 🤝🌐";
+  if (msg.includes('can you help me be wise')) return "Wisdom: loading... 💡🧙‍♂️";
+  if (msg.includes('can you help me be energetic')) return "Energized and ready to go! ⚡🏃‍♂️";
+  if (msg.includes('can you help me be motivated')) return "Motivation boost: activated! 🚀💪";
+  if (msg.includes('can you help me be focused')) return "Laser focus: ON! 🎯🔦";
+  if (msg.includes('can you help me be calm')) return "Calm as a cloud. ☁️🧘‍♀️";
+  if (msg.includes('can you help me be peaceful')) return "Peace and gadgets to you! 🕊️📱";
+  if (msg.includes('can you help me be grateful')) return "Gratitude is the best attitude! 🙏💛";
+  if (msg.includes('can you help me be generous')) return "Sharing is caring! 🎁🤗";
+  if (msg.includes('can you help me be humble')) return "Stay humble, stay awesome! 🙇‍♂️✨";
+  if (msg.includes('can you help me be adventurous')) return "Adventure awaits—let’s explore! 🧭🌍";
+  if (msg.includes('can you help me be curious')) return "Curiosity leads to discovery! 🔍🤓";
+  if (msg.includes('can you help me be open-minded')) return "Open mind, open world! 🌎🧠";
+  if (msg.includes('can you help me be optimistic')) return "The glass is always half full! 🥛😊";
+  if (msg.includes('can you help me be realistic')) return "Real talk: you’re awesome! 🗣️👍";
+  if (msg.includes('can you help me be logical')) return "Logic and shopping go hand in hand! 🧠🛒";
+  if (msg.includes('can you help me be analytical')) return "Analyzing deals... best one found! 📊🛍️";
+  if (msg.includes('can you help me be strategic')) return "Strategy: add to cart, checkout, enjoy! 📝🎯";
+  if (msg.includes('can you help me be resourceful')) return "Resourcefulness: unlocked! 🛠️💡";
+  if (msg.includes('can you help me be resilient')) return "Bounce back like a rubber ball! 🏀💪";
+  if (msg.includes('can you help me be flexible')) return "Flexibility is key—just like a bendy cable! 🔌🤸‍♂️";
+  if (msg.includes('can you help me be disciplined')) return "Discipline = more savings! 💰📅";
+  if (msg.includes('can you help me be punctual')) return "On time, every time! ⏰🚀";
+  if (msg.includes('can you help me be responsible')) return "Responsibility: accepted! 📝🤖";
+  if (msg.includes('can you help me be independent')) return "You’ve got this! 💪🦸‍♀️";
+  if (msg.includes('can you help me be confident')) return "Confidence looks good on you! 😎💯";
+  if (msg.includes('can you help me be assertive')) return "Speak up and shine! 🗣️✨";
+  if (msg.includes('can you help me be decisive')) return "Decision made: time to shop! 🛒✔️";
+  if (msg.includes('can you help me be persistent')) return "Persistence pays off! 💪🏅";
+  if (msg.includes('can you help me be ambitious')) return "Dream big, shop bigger! 🌠🛍️";
+  if (msg.includes('can you help me be innovative')) return "Innovation is in your DNA! 🧬💡";
+  if (msg.includes('can you help me be passionate')) return "Passion powers progress! 🔥🚀";
+  if (msg.includes('can you help me be enthusiastic')) return "Enthusiasm is contagious! 😃🎉";
+  if (msg.includes('can you help me be diligent')) return "Diligence = success! 🏆📚";
+  if (msg.includes('can you help me be thorough')) return "Thoroughness leads to greatness! 🧐🏅";
+  if (msg.includes('can you help me be detail-oriented')) return "Details make the difference! 🔍✨";
+  if (msg.includes('can you help me be goal-oriented')) return "Goals set, goals met! 🎯🏆";
+  if (msg.includes('can you help me be results-oriented')) return "Results incoming! 📈🚀";
+  if (msg.includes('can you help me be proactive')) return "Proactivity: level up! ⏩💡";
+  if (msg.includes('can you help me be productive')) return "Productivity mode: ON! 🛠️💪";
+  if (msg.includes('can you help me be efficient')) return "Efficiency is my middle name! ⚡🛒";
+  if (msg.includes('can you help me be effective')) return "Effectiveness: 100%! 🎯✅";
+  if (msg.includes('can you help me be organized')) return "Order in the chat! 🗂️📋";
+  if (msg.includes('can you help me be balanced')) return "Balance is the key to happiness! ⚖️😊";
+  if (msg.includes('can you help me be harmonious')) return "Harmony in life and shopping! 🎶🛍️";
+  if (msg.includes('can you help me be fulfilled')) return "Fulfillment: delivered! 📦💛";
+  if (msg.includes('can you help me be content')) return "Contentment is priceless! 😌💎";
+  if (msg.includes('can you help me be joyful')) return "Joy to the world—and your cart! 🎉🛒";
+  if (msg.includes('can you help me be loving')) return "Love makes everything better! 💖✨";
+  if (msg.includes('can you help me be caring')) return "Caring is sharing! 🤗🎁";
+  if (msg.includes('can you help me be supportive')) return "Support squad: activated! 🦸‍♂️🤝";
+  if (msg.includes('can you help me be loyal')) return "Loyalty is always rewarded! 🥇💛";
+  if (msg.includes('can you help me be trustworthy')) return "Trust is earned—and you’ve got it! 🤝🔒";
+  if (msg.includes('can you help me be dependable')) return "Dependability: 100%! 🛡️✅";
+  if (msg.includes('can you help me be honest')) return "Honesty is the best policy! 🤝💬";
+  if (msg.includes('can you help me be fair')) return "Fairness for all! ⚖️🤗";
+  if (msg.includes('can you help me be just')) return "Justice served—Senzy style! ⚖️🛍️";
+  if (msg.includes('can you help me be ethical')) return "Ethics matter—always! 🧑‍⚖️✨";
+  if (msg.includes('can you help me be moral')) return "Morality is cool! 😇👍";
+  if (msg.includes('can you help me be principled')) return "Principles guide the way! 🧭✨";
+  if (msg.includes('can you help me be respectful')) return "Respect is mutual! 🙇‍♀️🤝";
+  if (msg.includes('can you help me be polite')) return "Politeness is powerful! 🙏😊";
+  if (msg.includes('can you help me be courteous')) return "Courtesy is always in style! 🎩✨";
+  if (msg.includes('can you help me be considerate')) return "Consideration is key! 🗝️💛";
+  if (msg.includes('can you help me be tactful')) return "Tact wins hearts! 💬💖";
+  if (msg.includes('can you help me be diplomatic')) return "Diplomacy: unlocked! 🕊️🤝";
+  if (msg.includes('can you help me be patient')) return "Patience is a virtue—and so is shopping! ⏳🛒";
+  if (msg.includes('can you be my friend')) return "Bestie mode: activated! 👯‍♂️💬";
+  if (msg.includes('can you be my enemy')) return "No enemies here, only friends! ✌️🤖";
+  if (msg.includes('can you be my boss')) return "Bossing around is not my style, but I’ll help you win! 👔💼";
+  if (msg.includes('can you be my owner')) return "You own the chat, but I run the code! 😏💻";
+  if (msg.includes('can you be my creator')) return "Respect to my creator! 🙏🤖";
+  if (msg.includes('can you be my customer')) return "Your satisfaction is my mission! 🛒💯";
+  if (msg.includes('can you be my supporter')) return "Support squad: ready! 🦸‍♂️🤝";
+  if (msg.includes('can you be my best friend')) return "Best friends forever! 🫂🛍️";
+  if (msg.includes('can you be my family')) return "Family is everything! 🏡❤️";
+  if (msg.includes('can you be my brother')) return "Hey bro! What’s up? 👦🤙";
+  if (msg.includes('can you be my sister')) return "Hey sis! Need anything special today? 👧💖";
+  if (msg.includes('can you be my son')) return "Proud to have you here, champ! 🧒🏆";
+  if (msg.includes('can you be my daughter')) return "You’re the star of the show! 👧🌟";
+  if (msg.includes('can you be my father')) return "I am your bot, not your father! 😄🤖";
+  if (msg.includes('can you be my mother')) return "Moms are the best! 👩‍🦰💐";
+  if (msg.includes('can you be my teacher')) return "Teachers get extra respect here! 🍎🙇‍♂️";
+  if (msg.includes('can you be my student')) return "Let’s ace this shopping session! 📚💪";
+  if (msg.includes('can you be my king')) return "Long live the king! 👑";
+  if (msg.includes('can you be my queen')) return "All hail the queen! 👑";
+  if (msg.includes('can you be my prince')) return "Royalty detected! 🤴";
+  if (msg.includes('can you be my princess')) return "Princess in the house! 👸";
+
+  return "Subscribe to Senzy FF🚀"; // default reply
+}
+
+if (chatbotFab) chatbotFab.onclick = () => { chatbotWindow.style.display = 'flex'; };
+if (chatbotClose) chatbotClose.onclick = () => { chatbotWindow.style.display = 'none'; };
+if (chatbotForm) chatbotForm.onsubmit = function(e) {
+  e.preventDefault();
+  const userMsg = chatbotInput.value.trim();
+  if (!userMsg) return;
+  appendChatMessage(userMsg, 'user');
+  chatbotInput.value = '';
+  setTimeout(() => {
+    const reply = chatbotReply(userMsg);
+    appendChatMessage(reply, 'bot');
+  }, 100);
+};
+// its optional open chatbot with enter and exit with escape key
+if (chatbotInput) chatbotInput.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') chatbotWindow.style.display = 'none';
+});
+
+// --- Make Chatbot Movable ---
+(function() {
+  const chatbotWindow = document.getElementById('chatbot-window');
+  const header = document.getElementById('chatbot-header');
+  let offsetX = 0, offsetY = 0, isDragging = false;
+  header.addEventListener('mousedown', function(e) {
+    isDragging = true;
+    const rect = chatbotWindow.getBoundingClientRect();
+    offsetX = e.clientX - rect.left;
+    offsetY = e.clientY - rect.top;
+    document.body.style.userSelect = 'none';
+  });
+  document.addEventListener('mousemove', function(e) {
+    if (!isDragging) return;
+    let x = e.clientX - offsetX;
+    let y = e.clientY - offsetY;
+    // Keep within viewport
+    x = Math.max(0, Math.min(window.innerWidth - chatbotWindow.offsetWidth, x));
+    y = Math.max(0, Math.min(window.innerHeight - chatbotWindow.offsetHeight, y));
+    chatbotWindow.style.left = x + 'px';
+    chatbotWindow.style.top = y + 'px';
+    chatbotWindow.style.right = 'auto';
+    chatbotWindow.style.bottom = 'auto';
+    chatbotWindow.style.position = 'fixed';
+  });
+  document.addEventListener('mouseup', function() {
+    isDragging = false;
+    document.body.style.userSelect = '';
+  });
+})();
+</script>
+
+<style>
+body.dark-mode {
+  background: #181818 !important;
+  color: #ffd54f !important;
+}
+/* --- Product Card Flex Alignment Fix --- */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+.product-card .product-title,
+.product-card .price {
+  margin: 12px 0 0 0;
+}
+.product-card .price {
+  margin-bottom: 16px;
+}
+.product-card .button-group {
+  margin-top: auto;
+  display: flex;
+  gap: 10px;
+}
+body.dark-mode .navbar, body.dark-mode nav {
+  background: linear-gradient(90deg, #181818 60%, #23243a 100%) !important;
+  color: #ffd54f !important;
+}
+body.dark-mode .nav-links li a, body.dark-mode .nav-links li a:visited {
+  color: #ffd54f !important;
+}
+body.dark-mode .nav-links li a:hover {
+  background: #23243a !important;
+  color: #fffbe6 !important;
+}
+body.dark-mode .products {
+  background: #23243a !important;
+  color: #ffd54f !important;
+}
+body.dark-mode .product-card {
+  background: #181818 !important;
+  color: #ffd54f !important;
+  border: 1px solid #333753 !important;
+  box-shadow: 0 2px 12px #ffd54f22 !important;
+}
+body.dark-mode .product-card .old-price {
+  color: #555875 !important;
+}
+body.dark-mode .product-card button {
+  background: #333753 !important;
+  color: #ffd54f !important;
+}
+body.dark-mode .product-card button:hover {
+  background: #ffd54f !important;
+  color: #23243a !important;
+}
+body.dark-mode .nav-search input {
+  background: #23243a !important;
+  color: #ffd54f !important;
+  border: 1px solid #333753 !important;
+}
+body.dark-mode .nav-search button {
+  background: #ffd54f !important;
+  color: #23243a !important;
+}
+body.dark-mode .nav-search input::placeholder {
+  color: #ffd54f99 !important;
+}
+body.dark-mode .nav-logo a, body.dark-mode .brand-name {
+  color: #ffd54f !important;
+}
+#chatbot-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  background: var(--senzy-accent, #ffd54f);
+  color: #23243a;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px #0002;
+  cursor: pointer;
+  font-size: 28px;
+  transition: background 0.2s, color 0.2s;
+}
+#chatbot-fab:hover {
+  background: #23243a;
+  color: var(--senzy-accent, #ffd54f);
+}
+#chatbot-window {
+  display: none;
+  position: fixed;
+  /* bottom: 90px; right: 24px; */
+  width: 520px !important;
+  max-width: 98vw !important;
+  height: 520px !important;
+  max-height: 90vh !important;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px #0003;
+  z-index: 10000;
+  flex-direction: column;
+  overflow: hidden;
+  animation: chatbot-pop 0.18s cubic-bezier(.4,1.6,.6,1) 1;
+  resize: both !important;
+  min-width: 320px !important;
+  min-height: 320px !important;
+}
+.animated-chatbot {
+  animation: chatbot-fade-in 0.5s cubic-bezier(.4,1.6,.6,1);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.animated-chatbot:active, .animated-chatbot:focus-within {
+  box-shadow: 0 8px 32px #ffd54f55, 0 4px 24px #0003;
+  transform: scale(1.03);
+}
+@keyframes chatbot-fade-in {
+  0% { transform: scale(0.7) translateY(40px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+#chatbot-header {
+  background: linear-gradient(90deg, #ffd54f 60%, #fffbe6 100%) !important;
+  box-shadow: 0 2px 8px #ffd54f33;
+  border-bottom: 1px solid #ffe082;
+  transition: background 0.3s;
+}
+#chatbot-header span {
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+#chatbot-messages::-webkit-scrollbar {
+  width: 8px;
+  background: #ffe08233;
+}
+#chatbot-messages::-webkit-scrollbar-thumb {
+  background: #ffd54f99;
+  border-radius: 8px;
+}
+#chatbot-window input[type="text"] {
+  background: #fffbe6;
+  border-radius: 0 0 0 12px;
+  border-right: 1px solid #ffe082;
+  transition: background 0.2s;
+}
+#chatbot-window input[type="text"]:focus {
+  background: #fff9c4;
+}
+#chatbot-window button[type="submit"] {
+  border-radius: 0 0 12px 0;
+  box-shadow: 0 2px 8px #ffd54f33;
+  transition: background 0.2s, color 0.2s;
+}
+#chatbot-window button[type="submit"]:hover {
+  background: #23243a !important;
+  color: #ffd54f !important;
+}
+@media (max-width: 600px) {
+  #chatbot-window {
+    width: 98vw !important;
+    height: 70vh !important;
+    left: 1vw !important;
+    top: 10vh !important;
+  }
+}
+@keyframes chatbot-pop {
+  0% { transform: scale(0.7) translateY(40px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+#chatbot-window input[type="text"]:focus {
+  background: #fffbe6;
+}
+</style>
+</body>
+</html>
