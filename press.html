@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Press - Senzy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="png" href="senzy.png">
+    <style>
+        :root {
+            --primary: #007bff;
+            --accent: #ffd54f;
+            --bg: #222;
+            --bg-light: #fff;
+            --text: #fff;
+            --text-light: #444;
+            --nav-bg: #23272f;
+            --nav-bg-light: #222;
+            --shadow: 0 4px 24px rgba(0,0,0,0.15);
+        }
+        body {
+            background: var(--bg-light);
+            color: var(--text-light);
+            transition: background 0.4s, color 0.4s;
+        }
+        .dark-mode {
+            background: #181a20;
+            color: #e0e0e0;
+        }
+        .classic-navbar {
+            background: var(--nav-bg);
+            color: var(--text);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            padding: 0;
+            margin: 0;
+            border-bottom: 2px solid var(--primary);
+            box-shadow: var(--shadow);
+            opacity: 0;
+            animation: navbarFadeIn 1s ease forwards;
+        }
+        @keyframes navbarFadeIn {
+            to { opacity: 1; }
+        }
+        .classic-navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.5rem 1rem;
+        }
+        .classic-navbar .logo {
+            font-size: 1.7rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+        .classic-navbar .logo:hover {
+            color: var(--accent);
+        }
+        .classic-navbar .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .classic-navbar .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.05rem;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .classic-navbar .nav-links a:hover,
+        .classic-navbar .nav-links .active {
+            background: var(--primary);
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(0,123,255,0.15);
+        }
+        .classic-navbar .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .classic-navbar .nav-actions a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: color 0.2s;
+            border-radius: 50%;
+            padding: 0.3rem;
+        }
+        .classic-navbar .nav-actions a:hover {
+            color: var(--accent);
+            background: rgba(255,213,79,0.08);
+        }
+        .classic-navbar .cart-count {
+            background: var(--accent);
+            color: #222;
+            border-radius: 50%;
+            padding: 0 7px;
+            font-size: 0.9rem;
+            margin-left: 3px;
+            font-weight: bold;
+        }
+        .dark-mode .classic-navbar {
+            background: #181a20;
+            color: #e0e0e0;
+            border-bottom: 2px solid #00bfff;
+        }
+        .dark-mode .classic-navbar .logo {
+            color: #00bfff;
+        }
+        .dark-mode .classic-navbar .nav-links a {
+            color: #e0e0e0;
+        }
+        .dark-mode .classic-navbar .nav-links a:hover,
+        .dark-mode .classic-navbar .nav-links .active {
+            background: #00bfff;
+            color: #fff;
+        }
+        .dark-mode .classic-navbar .nav-actions a {
+            color: #e0e0e0;
+        }
+        .dark-mode .classic-navbar .nav-actions a:hover {
+            color: #ffd54f;
+        }
+        .dark-mode .classic-navbar .cart-count {
+            background: #ffd54f;
+            color: #181a20;
+        }
+        /* Dark mode body */
+        .dark-mode {
+            background: #181a20;
+            color: #e0e0e0;
+        }
+        /* Dark mode section */
+        .dark-mode .press-section {
+            background: #23272f;
+            color: #e0e0e0;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.25);
+        }
+        /* Press Section Animation & Style */
+        .press-section {
+            padding: 48px 5%;
+            text-align: center;
+            color: #444;
+            font-size: 1.3rem;
+            background: #fff;
+            border-radius: 18px;
+            margin: 40px auto 0 auto;
+            max-width: 700px;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+            opacity: 0;
+            transform: translateY(40px);
+            animation: sectionFadeIn 1.2s 0.3s cubic-bezier(.4,1.4,.6,1) forwards;
+        }
+        @keyframes sectionFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .press-section h2 {
+            margin-top: 18px;
+            font-size: 2rem;
+            color: var(--primary);
+            letter-spacing: 1px;
+        }
+        .press-section a {
+            color: var(--primary);
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+        .press-section a:hover {
+            color: var(--accent);
+        }
+        .dark-mode .press-section h2 {
+            color: #00bfff;
+        }
+        .dark-mode .press-section a {
+            color: #00bfff;
+        }
+        .dark-mode .press-section a:hover {
+            color: #ffd54f;
+        }
+        /* Dark mode toggle button */
+        .dark-toggle {
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.4rem;
+            cursor: pointer;
+            margin-left: 1.2rem;
+            transition: color 0.2s;
+        }
+        .dark-toggle:hover {
+            color: var(--accent);
+        }
+        @media (max-width: 800px) {
+            .classic-navbar .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .classic-navbar .nav-links {
+                flex-wrap: wrap;
+                gap: 1rem;
+                margin-top: 0.5rem;
+            }
+            .classic-navbar .nav-actions {
+                margin-top: 0.5rem;
+            }
+            .press-section {
+                padding: 32px 2%;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Classic Navbar -->
+    <nav class="classic-navbar">
+        <div class="container">
+            <a href="/index.html" class="logo">
+                <i class="fas fa-store"></i> Senzy
+            </a>
+            <ul class="nav-links">
+                <li><a href="/" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="electronics.html"><i class="fas fa-tv"></i> Electronics</a></li>
+                <li><a href="fashion.html"><i class="fas fa-film"></i> 4K Video</a></li>
+                <li><a href="groceries.html"><i class="fas fa-image"></i> 4K Pictures</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="profile.html" title="Profile"><i class="fas fa-user-circle"></i></a>
+                <a href="login.html"><i class="fas fa-user"></i> Login</a>
+                <a href="javascript:void(0);" onclick="openCart()">
+                    <i class="fas fa-shopping-cart"></i> Cart
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+                <button class="dark-toggle" id="darkToggle" title="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <!-- navbar ending here -->
+    <section class="press-section">
+        <i class="fas fa-newspaper" style="font-size:2.5rem;color:#007bff;"></i>
+        <h2>Senzy in the Press</h2>
+        <p>
+            Welcome to our Press page! Here you can find the latest news, media coverage, and official announcements about Senzy.<br>
+            For press inquiries, interviews, or media kits, please contact us at
+            <a href="mailto:press@senzy.com">press@senzy.com</a>.
+        </p>
+        <p style="margin-top:20px;">
+            Stay tuned for updates and featured articles about Senzy's journey, innovations, and milestones.
+        </p>
+        <hr style="margin:32px auto;width:60%;border:0;border-top:1px solid #eee;">
+        <div style="margin-top:32px;">
+            <h3 style="color:#007bff;">Recent Highlights</h3>
+            <ul style="text-align:left;max-width:500px;margin:24px auto 0 auto;line-height:1.7;">
+                <li><strong>May 2024:</strong> Senzy featured in <a href="#">TechWorld Magazine</a> for its innovative AI-powered shopping experience.</li>
+                <li><strong>April 2024:</strong> Our CEO was interviewed on <a href="#">Startup Stories Podcast</a> discussing the future of e-commerce.</li>
+                <li><strong>March 2024:</strong> Senzy launched its new 4K Video and Pictures section, covered by <a href="#">Digital Trends</a>.</li>
+            </ul>
+        </div>
+        <div style="margin-top:40px;">
+            <h3 style="color:#007bff;">About Senzy</h3>
+            <p>
+                Senzy is committed to revolutionizing online shopping by combining advanced technology, user-friendly design, and a passion for customer satisfaction. 
+                Our platform brings you the best in electronics, fashion, groceries, and high-quality media content, all in one place.
+            </p>
+            <p>
+                We believe in transparency, innovation, and building a community around smarter shopping. Thank you for following our story!
+            </p>
+        </div>
+        <hr style="margin:40px auto 32px auto;width:60%;border:0;border-top:1px solid #eee;">
+        <div style="margin:0 auto 40px auto;max-width:900px;">
+            <h2 style="font-size:2rem;background:#f5f5f5;display:inline-block;padding:0.3em 1.2em;border-radius:8px;color:#444;box-shadow:0 2px 8px rgba(0,0,0,0.03);margin-bottom:32px;">What's New</h2>
+            <p style="font-style:italic;color:#888;margin-bottom:36px;">
+                Senzy is packed with new features and enhancements, including:
+            </p>
+            <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:40px;">
+                <div style="flex:1 1 320px;max-width:340px;min-width:260px;text-align:center;">
+                    <i class="fas fa-bolt" style="font-size:3rem;color:#007bff;margin-bottom:12px;"></i>
+                    <h3 style="font-size:1.25rem;margin:12px 0 8px 0;color:#222;">AI-Powered Search</h3>
+                    <p style="color:#666;">Find products faster and smarter with our new AI-driven search engine, delivering the most relevant results instantly.</p>
+                </div>
+                <div style="flex:1 1 320px;max-width:340px;min-width:260px;text-align:center;">
+                    <i class="fas fa-palette" style="font-size:3rem;color:#ff9800;margin-bottom:12px;"></i>
+                    <h3 style="font-size:1.25rem;margin:12px 0 8px 0;color:#222;">Modern Dark Mode</h3>
+                    <p style="color:#666;">Switch between light and dark themes for a comfortable browsing experience, day or night.</p>
+                </div>
+                <div style="flex:1 1 320px;max-width:340px;min-width:260px;text-align:center;">
+                    <i class="fas fa-layer-group" style="font-size:3rem;color:#43a047;margin-bottom:12px;"></i>
+                    <h3 style="font-size:1.25rem;margin:12px 0 8px 0;color:#222;">Multi-Category Shopping</h3>
+                    <p style="color:#666;">Browse and shop across electronics, fashion, groceries, and 4K media—all in one seamless platform.</p>
+                </div>
+                <div style="flex:1 1 320px;max-width:340px;min-width:260px;text-align:center;">
+                    <i class="fas fa-magic" style="font-size:3rem;color:#9c27b0;margin-bottom:12px;"></i>
+                    <h3 style="font-size:1.25rem;margin:12px 0 8px 0;color:#222;">Context-Aware Suggestions</h3>
+                    <p style="color:#666;">Get personalized product recommendations and smart auto-complete as you search and shop.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        // Dark mode toggle
+        const darkToggle = document.getElementById('darkToggle');
+        const body = document.body;
+        function setDarkMode(on) {
+            if (on) {
+                body.classList.add('dark-mode');
+                darkToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                body.classList.remove('dark-mode');
+                darkToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        }
+        // Remember preference
+        if (localStorage.getItem('senzy-dark') === '1') setDarkMode(true);
+        darkToggle.onclick = function() {
+            const isDark = body.classList.toggle('dark-mode');
+            setDarkMode(isDark);
+            localStorage.setItem('senzy-dark', isDark ? '1' : '0');
+        };
+    </script>
+</body>
+</html>

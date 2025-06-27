@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senzy - Pakistan</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="png" href="senzy.png">
+    <style>
+        /* Classic Navbar Styles */
+        .classic-navbar {
+            background: #222;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            padding: 0;
+            margin: 0;
+            border-bottom: 2px solid #007bff;
+        }
+        .classic-navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.5rem 1rem;
+        }
+        .classic-navbar .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .classic-navbar .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .classic-navbar .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 0.3rem 0.7rem;
+            border-radius: 3px;
+            transition: background 0.2s;
+        }
+        .classic-navbar .nav-links a:hover,
+        .classic-navbar .nav-links .active {
+            background: #007bff;
+            color: #fff;
+        }
+        .classic-navbar .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .classic-navbar .nav-actions a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: color 0.2s;
+        }
+        .classic-navbar .nav-actions a:hover {
+            color: #ffd54f;
+        }
+        .classic-navbar .cart-count {
+            background: #ffd54f;
+            color: #222;
+            border-radius: 50%;
+            padding: 0 7px;
+            font-size: 0.9rem;
+            margin-left: 3px;
+        }
+        @media (max-width: 800px) {
+            .classic-navbar .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .classic-navbar .nav-links {
+                flex-wrap: wrap;
+                gap: 1rem;
+                margin-top: 0.5rem;
+            }
+            .classic-navbar .nav-actions {
+                margin-top: 0.5rem;
+            }
+        }
+        /* Bubble Animation Styles */
+        .bubble-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .bubble {
+            position: absolute;
+            bottom: -120px;
+            border-radius: 50%;
+            opacity: 0.35;
+            animation: bubbleUp 12s linear infinite;
+            will-change: transform, opacity;
+        }
+        @keyframes bubbleUp {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 0.35;
+            }
+            80% {
+                opacity: 0.4;
+            }
+            100% {
+                transform: translateY(-110vh) scale(1.15);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Classic Navbar -->
+    <nav class="classic-navbar">
+        <div class="container">
+            <a href="/index.html" class="logo">
+                <i class="fas fa-store"></i> Senzy
+            </a>
+            <ul class="nav-links">
+                <li><a href="/" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="electronics.html"><i class="fas fa-tv"></i> Electronics</a></li>
+                <li><a href="fashion.html"><i class="fas fa-film"></i> 4K Video</a></li>
+                <li><a href="groceries.html"><i class="fas fa-image"></i> 4K Pictures</a></li>
+                
+            </ul>
+            <div class="nav-actions">
+                <a href="profile.html" title="Profile"><i class="fas fa-user-circle"></i></a>
+                <a href="login.html"><i class="fas fa-user"></i> Login</a>
+                <a href="javascript:void(0);" onclick="openCart()">
+                    <i class="fas fa-shopping-cart"></i> Cart
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- Bubble Background -->
+    <div class="bubble-bg" aria-hidden="true">
+        <div class="bubble" style="left:10vw;width:60px;height:60px;background:#007bff;animation-delay:0s;"></div>
+        <div class="bubble" style="left:25vw;width:40px;height:40px;background:#ffd54f;animation-delay:2s;"></div>
+        <div class="bubble" style="left:50vw;width:80px;height:80px;background:#43a047;animation-delay:4s;"></div>
+        <div class="bubble" style="left:70vw;width:50px;height:50px;background:#ff9800;animation-delay:1s;"></div>
+        <div class="bubble" style="left:85vw;width:35px;height:35px;background:#9c27b0;animation-delay:3s;"></div>
+        <div class="bubble" style="left:60vw;width:70px;height:70px;background:#00bcd4;animation-delay:5s;"></div>
+        <div class="bubble" style="left:35vw;width:55px;height:55px;background:#e91e63;animation-delay:2.5s;"></div>
+    </div>
+    <!-- navbar ending here -->
+<section style="padding:40px 5%;text-align:center;color:#888;font-size:1.3rem;">
+        <i class="fas fa-tools" style="font-size:2.5rem;color:#ffd54f;"></i>
+        <p style="margin-top:18px;">We will add exciting Pakistan-specific features and offers here soon. Stay tuned!</p>
+        <p>In the meantime, feel free to explore our other sections like Electronics, Fashion, and more.</p>
+        <p>Thank you for your patience and support as we expand our services to better serve our Pakistani customers!</p>
+        <p>– The Senzy Team</p>
+</body>
+</html>
