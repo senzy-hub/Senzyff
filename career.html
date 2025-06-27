@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Careers - Senzy</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background: #f4f6fa;
+      color: #222;
+      transition: background 0.3s, color 0.3s;
+      font-family: 'Segoe UI', 'Roboto', sans-serif;
+    }
+    .dark-mode, .dark-mode body {
+      background: #181c24 !important;
+      color: #f1f1f1 !important;
+    }
+    .dark-toggle-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #232a36;
+      color: #f7ca18;
+      border: none;
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 1000;
+      box-shadow: 0 2px 8px #0002;
+    }
+    .dark-mode .dark-toggle-btn {
+      background: #f7ca18;
+      color: #232a36;
+    }
+    .career-section {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      margin: 48px auto;
+      padding: 48px 24px;
+      max-width: 800px;
+      background: rgba(255,255,255,0.95);
+      border-radius: 22px;
+      box-shadow: 0 6px 32px rgba(44,62,80,0.1);
+      border: 1.5px solid #eaeaea;
+    }
+    .dark-mode .career-section {
+      background: rgba(35,39,47,0.98);
+      border-color: #232a36;
+      box-shadow: 0 6px 32px rgba(20,24,32,0.18);
+    }
+    .animated-heading, .normal-heading {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, #1877f3, #fd5949, #ff0000, #0077b5, #f7ca18);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      animation: gradientMove 3s ease-in-out infinite alternate;
+    }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+    .subtitle {
+      font-size: 1.25rem;
+      color: #3498db;
+      margin-bottom: 1.5em;
+      font-weight: 500;
+      text-shadow: 0 1px 6px #eaf6ff;
+      animation: fadeIn 1.2s 0.2s both;
+    }
+    .dark-mode .subtitle {
+      color: #f7ca18;
+      text-shadow: 0 1px 6px rgba(247,202,24,0.4);
+    }
+    .career-description {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    .career-description p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      background: rgba(245,247,250,0.85);
+      padding: 16px 20px;
+      border-radius: 12px;
+      border-left: 4px solid #3498db;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s forwards;
+      color: #222;
+    }
+    .dark-mode .career-description p {
+      background: rgba(40,44,54,0.98);
+      color: #f1f1f1;
+      border-left-color: #f7ca18;
+    }
+    .career-description p:nth-child(1) { animation-delay: 0.3s; }
+    .career-description p:nth-child(2) { animation-delay: 0.6s; }
+    .career-description p:nth-child(3) { animation-delay: 0.9s; }
+    .career-description li {
+      font-size: 1rem;
+      margin: 0.6rem 0;
+      text-align: left;
+      animation: fadeInLeft 0.8s ease forwards;
+      color: inherit;
+    }
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    .bubble-bg {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      z-index: 0;
+      overflow: hidden;
+      border-radius: 22px;
+    }
+    .bubble-bg .bubble {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.2;
+      animation: floatBubble 7s linear infinite;
+    }
+    @keyframes floatBubble {
+      0% { transform: translateY(100vh) scale(1); opacity: 0.3; }
+      100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <button class="dark-toggle-btn" onclick="toggleDarkMode()" title="Toggle dark mode"><i class="fas fa-moon"></i></button>
+
+  <main class="career-section">
+    <div class="bubble-bg"></div>
+
+    <h1 class="animated-heading">🌟 Careers at Senzy</h1>
+    <p class="subtitle">Join the Future of E-commerce</p>
+
+    <section class="career-description">
+      <p>At Senzy, we’re more than just an online store — we’re redefining the way people shop. With a focus on innovation, customer delight, and seamless digital experiences, we’re building something exciting — and we want passionate people to build it with us.</p>
+    </section>
+
+    <h1 class="animated-heading">🚀 Why Work at Senzy?</h1>
+    <p class="subtitle">We grow together</p>
+
+    <section class="career-description">
+      <p>Senzy is a place where ideas turn into action. Whether you're a tech wizard, a creative mind, or a customer-focused soul, we give you the space to grow, create, and make an impact.</p>
+      <p><strong>What makes us special?</strong></p>
+      <ul>
+        <li>🌍 Work from anywhere (Remote-friendly culture)</li>
+        <li>💡 Open, collaborative environment</li>
+        <li>📚 Learn new skills with mentorship and training</li>
+        <li>🛍️ Be part of a booming e-commerce industry</li>
+      </ul>
+    </section>
+  </main>
+
+  <script>
+    function toggleDarkMode() {
+      document.documentElement.classList.toggle('dark-mode');
+      if(document.documentElement.classList.contains('dark-mode')) {
+        localStorage.setItem('senzy-dark-mode', '1');
+      } else {
+        localStorage.removeItem('senzy-dark-mode');
+      }
+    }
+    if(localStorage.getItem('senzy-dark-mode')) {
+      document.documentElement.classList.add('dark-mode');
+    }
+    function createBubbles() {
+      const bubbleBg = document.querySelector('.bubble-bg');
+      for (let i = 0; i < 20; i++) {
+        const bubble = document.createElement('div');
+        bubble.className = 'bubble';
+        const size = Math.random() * 40 + 20;
+        bubble.style.width = size + 'px';
+        bubble.style.height = size + 'px';
+        bubble.style.left = Math.random() * 100 + 'vw';
+        bubble.style.bottom = '-' + (Math.random() * 20 + 10) + 'vh';
+        bubble.style.background = `rgba(${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},0.2)`;
+        bubble.style.animationDuration = (Math.random() * 2 + 5) + 's';
+        bubbleBg.appendChild(bubble);
+      }
+    }
+    window.addEventListener('DOMContentLoaded', createBubbles);
+  </script>
+</body>
+</html>

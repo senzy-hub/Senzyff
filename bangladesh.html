@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senzy - Bangladesh</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="png" href="senzy.png">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar sticky-navbar cool-navbar">
+        <div class="nav-top">
+            <div class="nav-logo">
+                <a href="profile.html"><i class="fas fa-user-circle profile-icon"></i></a>
+                <a href="/index.html" class="brand-name">Senzy</a>
+            </div>
+            <div class="nav-search cool-search">
+                <input type="text" id="searchInput" onkeyup="searchProducts()" placeholder="Search For Products...">
+                <button onclick="searchProducts()" class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="nav-actions">
+                <a href="login.html"><i class="fas fa-user"></i> Login</a>
+                <a href="javascript:void(0);" onclick="openCart()"><i class="fas fa-shopping-cart"></i> Cart <span id="cartCount">0</span></a>
+            </div>
+        </div>
+        <div class="nav-bottom">
+            <ul class="nav-links cool-tabs">
+                <li><a href="/" class="tab-link"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="electronics.html" class="tab-link"><i class="fas fa-tv"></i> Electronics</a></li>
+                <li><a href="fashion.html" class="tab-link"><i class="fas fa-film"></i> 4K Video</a></li>
+                <li><a href="groceries.html" class="tab-link"><i class="fas fa-image"></i> 4K Pictures</a></li>
+                
+            </ul>
+        </div>
+    </nav>
+    <!-- navbar ending here -->
+    <section style="padding:40px 5%;text-align:center;color:#888;font-size:1.3rem;">
+        <i class="fas fa-tools" style="font-size:2.5rem;color:#ffd54f;"></i>
+        <p style="margin-top:18px;">We will add exciting Bangladesh-specific features and offers here soon. Stay tuned!</p>
+        <p>In the meantime, feel free to explore our other sections like Electronics, Fashion, and more.</p>
+        <p>Thank you for your patience and support as we expand our services to better serve our Bangladeshi customers!</p>
+        <p>– The Senzy Team</p>
+    </section>
+</body>
+</html>
